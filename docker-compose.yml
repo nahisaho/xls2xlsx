@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Azurite - Azure Storage Emulator
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: azurite
+    ports:
+      - "10000:10000"  # Blob service
+      - "10001:10001"  # Queue service
+      - "10002:10002"  # Table service
+    volumes:
+      - azurite-data:/data
+    command: "azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0 --loose"
+
+  # Azure Functions
+  functions:
+    build: .
+    container_name: xls-converter-functions
+    ports:
+      - "8080:80"
+    environment:
+      - AzureWebJobsStorage=DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1;QueueEndpoint=http://azurite:10001/devstoreaccount1;
+      - FUNCTIONS_WORKER_RUNTIME=python
+    depends_on:
+      - azurite
+    volumes:
+      - ./:/home/site/wwwroot
+
+volumes:
+  azurite-data:

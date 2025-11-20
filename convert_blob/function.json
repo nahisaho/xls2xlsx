@@ -1,0 +1,12 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "inputblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "xls-input/{name}",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-11-20T23:13:21.444469",
+  "environment": "Local (Azure Functions Core Tools)",
+  "tests": [
+    {
+      "name": "python_packages_check",
+      "status": "PASS",
+      "message": "All required packages are installed",
+      "timestamp": "2025-11-20T23:13:22.728277"
+    },
+    {
+      "name": "create_samples",
+      "status": "PASS",
+      "message": "Sample XLS files created successfully",
+      "timestamp": "2025-11-20T23:13:22.731966"
+    },
+    {
+      "name": "conversion_logic_test",
+      "status": "PASS",
+      "message": "Converted successfully: 3 rows, 4 columns, 5149 bytes",
+      "timestamp": "2025-11-20T23:13:22.769710",
+      "duration_seconds": 0.029508590698242188
+    },
+    {
+      "name": "multiple_sheets_test",
+      "status": "PASS",
+      "message": "2 sheets converted successfully: 5583 bytes",
+      "timestamp": "2025-11-20T23:13:22.780634",
+      "duration_seconds": 0.010617733001708984
+    },
+    {
+      "name": "verify_output_files",
+      "status": "PASS",
+      "message": "All 2 output files verified successfully",
+      "timestamp": "2025-11-20T23:13:22.785452"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "success_rate": "100.0%"
+  },
+  "environment_info": {
+    "python_version": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]",
+    "platform": "linux",
+    "working_directory": "/home/nahisaho/GitHub/xls2xlsx"
+  }
+}

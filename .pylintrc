@@ -1,0 +1,50 @@
+[MASTER]
+# Python code to execute, usually for sys.path manipulation
+init-hook='import sys; sys.path.append(".")'
+
+[MESSAGES CONTROL]
+# Disable specific warnings
+disable=C0111,  # missing-docstring
+        C0103,  # invalid-name
+        R0903,  # too-few-public-methods
+        W0212,  # protected-access
+        R0913,  # too-many-arguments
+        R0914,  # too-many-locals
+
+[FORMAT]
+# Maximum number of characters on a single line
+max-line-length=127
+
+# Maximum number of lines in a module
+max-module-lines=1000
+
+[BASIC]
+# Good variable names
+good-names=i,j,k,ex,Run,_,df,f,e
+
+[DESIGN]
+# Maximum number of arguments for function / method
+max-args=7
+
+# Maximum number of locals for function / method body
+max-locals=20
+
+# Maximum number of return / yield for function / method body
+max-returns=6
+
+# Maximum number of branch for function / method body
+max-branches=15
+
+# Maximum number of statements in function / method body
+max-statements=50
+
+# Maximum number of attributes for a class
+max-attributes=10
+
+[IMPORTS]
+# Allow wildcard imports from these modules
+allow-wildcard-with-all=no
+
+[EXCEPTIONS]
+# Exceptions that will emit a warning when being caught
+overgeneral-exceptions=Exception

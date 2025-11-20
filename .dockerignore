@@ -1,0 +1,10 @@
+.git
+.gitignore
+.vscode
+.venv
+__pycache__
+*.md
+samples/
+test_output/
+.dockerignore
+docker-compose.yml

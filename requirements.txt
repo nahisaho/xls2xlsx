@@ -1,0 +1,5 @@
+azure-functions
+pandas
+openpyxl
+xlrd
+azure-storage-blob
