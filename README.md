@@ -12,6 +12,8 @@ Excel旧形式（XLS）を新形式（XLSX）に変換するAzure Functionsア�
 
 このプロジェクトは、XLSファイルをXLSXファイルに変換するサーバーレスアプリケーションです。以下の2つの方法で変換が可能です：
 
+> 💼 **パートナー企業様**: 導入・利用の詳細は [PARTNER_GUIDE.md](PARTNER_GUIDE.md) をご覧ください
+
 1. **HTTPトリガー**: REST API経由でファイルをアップロードして変換
 2. **Blobトリガー**: Azure Blob Storageにファイルをアップロードすると自動変換
 
@@ -473,8 +475,14 @@ pip install --upgrade -r requirements.txt
 
 - `README.md` - このファイル
 - `要件定義書.md` - プロジェクト要件定義
+- `PARTNER_GUIDE.md` - パートナー利用ガイド（946行）
 - `TEST_REPORT.md` - テスト詳細レポート
 - `TEST_SUMMARY.md` - テストサマリー
+- `SECURITY_AUDIT.md` - セキュリティ監査レポート
+- `SECURITY_IMPLEMENTATION.md` - セキュリティ実装詳細
+- `CICD_GUIDE.md` - CI/CDパイプラインガイド
+- `CHANGELOG.md` - プロジェクト変更履歴
+- `PROJECT_STATUS.md` - プロジェクト状態レポート
 
 ## ライセンス
 
@@ -489,7 +497,13 @@ MIT License
 
 ## サポート
 
-問題が発生した場合は、GitHubのIssuesで報告してください。
+### 一般ユーザー
+
+問題が発生した場合は、[GitHub Issues](https://github.com/nahisaho/xls2xlsx/issues)で報告してください。
+
+### パートナー企業
+
+技術サポート、導入支援、カスタマイズのご相談は [PARTNER_GUIDE.md](PARTNER_GUIDE.md) のサポートセクションをご確認ください。
 
 ---
 
