@@ -4,6 +4,12 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+# Add permissions for github-script to post comments
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   pr-checks:
     name: Pull Request Validation
@@ -11,20 +17,20 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         fetch-depth: 0  # Full history for better analysis
-    
+        
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-    
+        
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    
+        
     - name: Check PR title format
       run: |
         PR_TITLE="${{ github.event.pull_request.title }}"
@@ -45,12 +51,12 @@ jobs:
         
         echo "Running security tests..."
         python test_security_features.py
-    
+        
     - name: Check for security issues
       run: |
         pip install bandit
         bandit -r . -f txt || true
-    
+        
     - name: Analyze code changes
       run: |
         echo "## PR Analysis" >> $GITHUB_STEP_SUMMARY
@@ -60,7 +66,7 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "### Lines Changed" >> $GITHUB_STEP_SUMMARY
         git diff --stat origin/${{ github.base_ref }}..HEAD >> $GITHUB_STEP_SUMMARY
-    
+        
     - name: Comment on PR
       if: always()
       uses: actions/github-script@v7
@@ -79,7 +85,7 @@ jobs:
           
           Ready for review!`;
           
-          github.rest.issues.createComment({
+          await github.rest.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
