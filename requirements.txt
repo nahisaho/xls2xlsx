@@ -2,4 +2,5 @@ azure-functions
 pandas
 openpyxl
 xlrd
+xlwt
 azure-storage-blob
